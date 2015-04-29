@@ -70,7 +70,7 @@ class application_models_messages extends application_models_base {
         $date = Zend_Date::now();
         $date->sub(Zend_Registry::get('config')->errormessages->lifetime, Zend_Date::DAY);
         $this->delete(
-            $this->getAdapter()->quoteInto('datetime<?', $date->toString('YYYY-MM-dd') . ' 00:00:00')
+            $this->getAdapter()->quoteInto('datetime<?', $date->toString('yyyy-MM-dd') . ' 00:00:00')
         );
     }
 }

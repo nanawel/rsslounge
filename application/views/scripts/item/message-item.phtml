@@ -10,7 +10,7 @@
         <img src="<?PHP echo Zend_Registry::get('config')->favicons->url . $this->icon ?>" alt="<?PHP echo $this->name ?>" title="<?PHP echo $this->name ?>" width="16" height="16" />
     <?PHP endif; ?>
     <?PHP $date = new Zend_Date($this->datetime); ?>
-    <span title="<?PHP echo $date->toString('d.MM.YYYY HH:mm'); ?>"><?PHP echo $date->toString('HH:mm'); ?></span>
+    <span title="<?PHP echo $date->toString('d.MM.yyyy HH:mm'); ?>"><?PHP echo $date->toString('HH:mm'); ?></span>
     <h2 <?PHP echo Zend_Registry::get('session')->openitems==1 ? 'class="opened"' : '' ?>>
         <?PHP 
             $title = $this->highlite($this->title, Zend_Registry::get('search'));
