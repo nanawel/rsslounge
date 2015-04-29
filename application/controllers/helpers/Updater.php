@@ -45,9 +45,11 @@ class Helper_Updater extends Zend_Controller_Action_Helper_Abstract {
         }
         
         // update html url of the feed
-        $feed->htmlurl = $plugin->getHtmlUrl();
+        if ($plugin->getHtmlUrl()) {
+            $feed->htmlurl = $plugin->getHtmlUrl();
+        }
         $feed->save();
-        
+
         // current date
         $now = Zend_Date::now();
         $now->sub(Zend_Registry::get('session')->deleteItems, Zend_Date::DAY);
@@ -97,6 +99,10 @@ class Helper_Updater extends Zend_Controller_Action_Helper_Abstract {
                     "elements"       => Zend_Registry::get('config')->rss->allowed->tags
                 )
             );
+
+            // Fix poorly encoded content
+            $content = iconv('UTF-8', 'UTF-8//IGNORE', $content);
+
             $title = htmLawed($item->getTitle(), array("deny_attribute" => "*", "elements" => "-*"));
             $logger->log('item content sanitized', Zend_Log::DEBUG);
             
