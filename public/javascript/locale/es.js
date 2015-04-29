@@ -1,4 +1,4 @@
-﻿var lang = { 
+var lang = { 
 
 really_delete_this_feed: '¿Realmenet desea borrar este feed?',
 ok: 'Ok',
