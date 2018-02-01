@@ -17,7 +17,7 @@
             echo strlen(trim($title))==0 ? '['.$this->translate('no title').']' : $title;
         ?>
     </h2>
-    <a href="<?PHP echo $this->link ?>" class="link">&raquo; <?PHP echo $this->name ?> </a>
+    <a href="<?PHP echo $this->link ?>" class="link" rel="noreferrer noopener">&raquo; <?PHP echo $this->name ?> </a>
     <div class="content <?PHP echo Zend_Registry::get('session')->openitems!=1 ? 'closed' : '' ?>">
         <?PHP 
             if(Zend_Registry::get('session')->openitems==1)
